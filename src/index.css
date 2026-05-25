@@ -1,111 +1,123 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("./assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("./assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Neutral palette */
+  --neutral-900: hsl(243, 96%, 9%);
+  --neutral-800: hsl(243, 27%, 20%);
+  --neutral-700: hsl(243, 23%, 24%);
+  --neutral-600: rgb(61, 59, 94);
+  --neutral-300: hsl(240, 6%, 70%);
+  --neutral-200: hsl(250, 6%, 84%);
+  --neutral-0: hsl(0, 0%, 100%);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Semantic system */
+  --color-bg: var(--neutral-900);
+  --color-surface: var(--neutral-800);
+  --color-surface-alt: var(--neutral-700);
+  --color-border: var(--neutral-600);
+  --color-text-secondary: var(--neutral-300);
+  --color-placeholder: var(--neutral-200);
+  --color-text-primary: var(--neutral-0);
+  --color-hover: var(--color-border);
+  /* Accent Colors */
+  --orange-500: hsl(28, 100%, 52%);
+  --blue-500: hsl(233, 67%, 56%);
+  --blue-700: hsl(248, 70%, 36%);
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Semantic Accent Aliases */
+  --color-primary: var(--blue-500);
+  /* old --primary-blue */
+  --color-accent: var(--orange-500);
+  /* old --primary-orange */
+  --color-accent-strong: var(--blue-700);
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Typography */
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Bricolage Grotesque", sans-serif;
+  --font-size-body: 18px;
+
+  /* z-index system */
+
+  --z-search-progress: 1100;
+
+  --z-base: 1;
+  --z-card: 10;
+  --z-dropdown: 100;
+  --z-modal: 1000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+:root[data-theme="light"] {
+  --neutral-900: hsl(0, 100%, 99%);
+  --neutral-800: hsl(330, 2%, 23%);
+  --neutral-700: hsl(240, 37%, 89%);
+  --neutral-600: hsl(227, 75%, 89%);
+  --neutral--400: hsl(230, 58%, 76%);
+  --neutral-300: hsl(227, 45%, 83%);
+  --neutral-200: hsl(300, 2%, 8%);
+  --neutral-0: hsl(245, 50%, 20%);
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --color-bg: var(--neutral-900);
+  --color-surface: var(--neutral-600);
+  --color-surface-alt: var(--neutral-300);
+  --color-border: var(--neutral-700);
+  --color-text-secondary: var(--neutral-800);
+  --color-placeholder: var(--neutral-200);
+  --color-text-primary: var(--neutral-0);
+  --color-hover: var(--neutral--400);
+  /* Accent Colors */
+  --orange-500: hsl(25, 95%, 53%);
+  --color-accent-strong: hsl(233, 67%, 56%);
+  --blue-500: hsl(248, 70%, 36%);
+  --purple-400: hwb(255 85% 1%);
+
+  /* Semantic Accent Aliases */
+  --color-primary: var(--blue-500);
+  --color-accent: var(--orange-500);
+  --color-accent-alt: var(--purple-400);
 }
 
+html,
 body {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
   margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  color: inherit;
 }
