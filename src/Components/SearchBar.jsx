@@ -84,7 +84,7 @@ export default function SearchBar({ onSearch }) {
     // handle submit 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const normalized = normalizeInput(city);
+    const normalized = normalizeInput(searchVal);
     if (!normalized) return;
     onSearch(normalized);
     setSearchVal("");
