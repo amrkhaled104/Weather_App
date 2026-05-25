@@ -81,10 +81,24 @@ export default function SearchBar({ onSearch }) {
       setActiveIndex(-1);
     }
   };
+    // handle submit 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const normalized = normalizeInput(city);
+    if (!normalized) return;
+    onSearch(normalized);
+    setSearchVal("");
+    setSuggestions([]);
+    setActiveIndex(-1);
+  };
   return (
     <section className="search-Bar">
       <h1 data-aos="fade-down">How&apos;s the sky looking today?</h1>
-      <form className="search-bar-form" autoComplete="off">
+      <form
+        className="search-bar-form"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <div className="inputs">
           <div className="input-box" data-aos="fade-right">
             <img
