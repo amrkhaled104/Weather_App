@@ -1,0 +1,22 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  z-index: var(--z-base);
+  position: relative;
+}
+
+.box-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.units-dropdown {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
